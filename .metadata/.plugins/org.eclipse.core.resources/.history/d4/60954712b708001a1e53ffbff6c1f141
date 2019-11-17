@@ -1,0 +1,35 @@
+package br.fiap.botinicial;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class BotInicial {
+
+	public String buscarPergunta(String pergunta) {
+		try {
+			String resposta = MontandoPerguntasERespostas().get(pergunta).toLowerCase();
+			if (resposta == null) {
+				return "Não entendi...";
+			}
+			return resposta;
+		} catch (NullPointerException ex) {
+			return "Não entendi...";
+		}
+	}
+	
+
+	public int lerMensagem(int count) {
+		
+		//criação do objeto bot com as informações de acesso
+		TelegramBot bot = new TelegramBot("854043531:AAFN5ZkFvaryyWmxp2hdQPjHguT-jN2wikc");
+		
+	}
+	
+	
+	public Map<String, String> MontandoPerguntasERespostas() {
+		Map<String, String> opcoes = new HashMap<>();
+		opcoes.put("olá", "Oi");
+		opcoes.put("tchau", "Tchau até mais...");
+		return opcoes;
+	}
+}

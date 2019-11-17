@@ -1,0 +1,61 @@
+package br.fiap.botinicial;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import com.pengrad.telegrambot.TelegramBot;
+import com.pengrad.telegrambot.model.Update;
+import com.pengrad.telegrambot.request.GetUpdates;
+import com.pengrad.telegrambot.request.SendMessage;
+import com.pengrad.telegrambot.response.GetUpdatesResponse;
+
+public class BotInicial {
+
+	public String buscarPergunta(String pergunta) {
+		try {
+			String resposta = MontandoPerguntasERespostas().get(pergunta).toLowerCase();
+			if (resposta == null) {
+				return "Não entendi...";
+			}
+			return resposta;
+		} catch (NullPointerException ex) {
+			return "Não entendi...";
+		}
+	}
+	
+
+	public int lerMensagem (int count) {
+		
+		//criação do objeto bot com as informações de acesso
+		TelegramBot bot = new TelegramBot("854043531:AAFN5ZkFvaryyWmxp2hdQPjHguT-jN2wikc");
+		
+		//objeto responsável por receber as mensagens
+		GetUpdatesResponse updateResponse;
+		
+		//executa comando no Telegram para obter as mensagens pendentes a partir de um off-set (limite inicial)
+		updateResponse = bot.execute(new GetUpdates().limit(100).offset(count));
+		
+		List<Update> updates = updateResponse.updates();
+		
+		//lista de mensagens
+		if (updates.size() != 0) {
+			Update update = updates.get(updates.size());
+			
+			String resposta = buscarPergunta(update.message().text());
+			
+			bot.execute(new SendMessage(update.message().chat().id(), resposta));
+			
+			return update.updateId();
+		}
+		return count;
+	}
+	
+	
+	public Map<String, String> MontandoPerguntasERespostas() {
+		Map<String, String> opcoes = new HashMap<>();
+		opcoes.put("olá", "Oi");
+		opcoes.put("tchau", "Tchau até mais...");
+		return opcoes;
+	}
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="br.fiap.botinicial.BotInicial"/>
+<fullyQualifiedTypeName name="com.sun.javafx.collections.MappingChange.Map"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="com.pengrad.telegrambot.TelegramBot"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.pengrad.telegrambot.model.Update"/>
+<fullyQualifiedTypeName name="com.pengrad.telegrambot.request.SendMessage"/>
+<fullyQualifiedTypeName name="com.pengrad.telegrambot.response.GetUpdatesResponse"/>
+<fullyQualifiedTypeName name="com.pengrad.telegrambot.request.GetUpdates"/>
+</qualifiedTypeNameHistroy>

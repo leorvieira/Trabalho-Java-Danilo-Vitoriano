@@ -1,0 +1,33 @@
+package br.fiap.botinicial;
+
+import java.util.HashMap;
+
+import com.sun.javafx.collections.MappingChange.Map;
+
+public class BotInicial {
+
+	public String buscarPergunta(String pergunta) {
+		try {
+			String resposta = MontandoPerguntasERespostas()
+			if (resposta == null) {
+				return "Não entendi...";
+			}
+			return resposta;
+		} catch (NullPointerException ex) {
+			return "Não entendi...";
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	public Map<String, String> MontandoPerguntasERespostas() {
+		Map<String, String> opcoes = new HashMap<>();
+		opcoes.put("olá", "Oi");
+		opcoes.put("tchau", "Tchau até mais...");
+		return opcoes;
+	}
+}

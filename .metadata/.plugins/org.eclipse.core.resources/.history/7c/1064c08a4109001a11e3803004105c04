@@ -1,0 +1,17 @@
+package br.fiap.bottelegram;
+
+import br.fiap.botinicial.BotInicial;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		BotInicial bot = new BotInicial();
+		int count = 0;
+		while (true) {
+			int i = bot.lerMensagem(count + 1);
+			count = i;
+		}
+	}
+
+}
